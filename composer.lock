@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "25b79e653d1cd56b46d4079896692eea",
+    "content-hash": "23dfe662d113985752bfde3aa6a62ccb",
     "packages": [
         {
             "name": "codeigniter4/framework",
@@ -63,6 +63,45 @@
                 "source": "https://github.com/codeigniter4/CodeIgniter4"
             },
             "time": "2022-02-26T00:51:52+00:00"
+        },
+        {
+            "name": "geeklabs/ci4-breadcrumbs",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/GeekLabsUK/CI4-Breadcrumbs.git",
+                "reference": "b24aa79dd33f1a813953d19ee5499c3f5d7debe2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/GeekLabsUK/CI4-Breadcrumbs/zipball/b24aa79dd33f1a813953d19ee5499c3f5d7debe2",
+                "reference": "b24aa79dd33f1a813953d19ee5499c3f5d7debe2",
+                "shasum": ""
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Geeklabs\\Breadcrumbs\\": "/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "description": "Simple breadcrum library for Codeigniter 4",
+            "homepage": "https://github.com/GeekLabsUK",
+            "keywords": [
+                "CI4",
+                "CodeIgniter 4",
+                "breadcrumbs",
+                "codeigniter"
+            ],
+            "support": {
+                "issues": "https://github.com/GeekLabsUK/CI4-Breadcrumbs/issues",
+                "source": "https://github.com/GeekLabsUK/CI4-Breadcrumbs/tree/main"
+            },
+            "time": "2020-11-19T01:28:19+00:00"
         },
         {
             "name": "kint-php/kint",
@@ -2581,8 +2620,10 @@
         }
     ],
     "aliases": [],
-    "minimum-stability": "stable",
-    "stability-flags": [],
+    "minimum-stability": "dev",
+    "stability-flags": {
+        "geeklabs/ci4-breadcrumbs": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

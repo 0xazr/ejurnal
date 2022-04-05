@@ -33,6 +33,12 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 
+// Routes for authors
+$routes->get('/author', 'Author\Home::index');
+$routes->get('/author/submit/', 'Author\Home::submit');
+$routes->get('/author/submit/(:num)', 'Author\Home::submit/$1');
+$routes->get('/author/submit/(:num)/(:num)', 'Author\Home::submit/$1/$2');
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing
