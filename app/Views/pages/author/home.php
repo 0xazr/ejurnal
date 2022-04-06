@@ -404,7 +404,7 @@ function toggleChecked() {
 
 </script>
 
-<!-- <h3>Refbacks</h3>
+<h3>Refbacks</h3>
 
 <ul class="menu">
 	<li class="current"><a href="/author/index?referralFilter=">All</a></li>
@@ -416,6 +416,28 @@ function toggleChecked() {
 <div id="referrals">
 <form action="/referral/bulkAction" method="post">
 <table width="100%" class="listing">
+	<tr><td class="headseparator" colspan="8">&nbsp;</td></tr>
+	<tr class="heading" valign="bottom">
+		<td width="3%">&nbsp;</td>
+		<td width="7%">Date Added</td>
+		<td width="3%">Hits</td>
+		<td>URL</td>
+		<td>Article</td>
+		<td>Title</td>
+		<td>Status</td>
+		<td width="10%" align="right">Action</td>
+	</tr>
+	<tr><td class="headseparator" colspan="8">&nbsp;</td></tr>
+	<tr valign="top">
+		<td colspan="8" class="nodata">
+							There are currently no refbacks.
+					</td>
+	</tr>
+	<tr valign="top">
+		<td colspan="8" class="endseparator">&nbsp;</td>
+	</tr>
+</table>
+<!-- <table width="100%" class="listing">
 	<tr><td class="headseparator" colspan="8">&nbsp;</td></tr>
 	<tr class="heading" valign="bottom">
 		<td width="3%">&nbsp;</td>
@@ -447,7 +469,7 @@ function toggleChecked() {
 		<td colspan="4" align="left">1 - 1 of 1 Items</td>
 		<td colspan="4" align="right"></td>
 	</tr>
-</table>
+</table> -->
 <p>
 	<input type="submit" name="accept" value="Publish" class="button" onclick="confirm('Are you sure you wish to publish the selected refback(s)?')"/>
 	<input type="submit" name="decline" value="Ignore" class="button" onclick="confirm('Are you sure you wish to ignore the selected refback(s)?')"/>
@@ -455,6 +477,6 @@ function toggleChecked() {
 	<input type="button" value="Select All" class="button" onclick="toggleChecked()" />
 </p>
 </form>
-</div> -->
+</div>
 </div><!-- content -->
 <?= $this->endSection(); ?>
