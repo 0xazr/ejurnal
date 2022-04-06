@@ -13,7 +13,7 @@
                <ul class="steplist">
                   <li id="step1" ><a href="/author/submit/1?articleId=12536">1. Start</a></li>
                   <li id="step2"  class="current">2. Upload Submission</li>
-                  <li id="step3" ><a href="/author/submit/3?articleId=12536">3. Enter Metadata</a></li>
+                  <li id="step3" >3. Enter Metadata</li>
                   <li id="step4" >4. Upload Supplementary Files</li>
                   <li id="step5" >5. Confirmation</li>
                </ul>

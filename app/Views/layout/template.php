@@ -1,5 +1,6 @@
 <?php
    $userSignedIn = true;
+   $username = "azril";
 ?>
 <!-- HEADER START -->
 <!DOCTYPE html>
@@ -38,7 +39,18 @@
                   </div>
 
                   <!-- SidebarUser berganti ketika user sudah login -->
-                  
+                  <?php if ($userSignedIn == true) : ?>
+                  <div class="block" id="sidebarUser">
+                  <span class="blockTitle">User</span>
+                  You are logged in as...<br />
+                  <strong><?= $username ?></strong>
+                  <ul>
+                     <li><a href="https://iptek.its.ac.id/index.php/index/user">My Journals</a></li>
+                     <li><a href="https://iptek.its.ac.id/index.php/itj/user/profile">My Profile</a></li>
+                     <li><a href="https://iptek.its.ac.id/index.php/itj/login/signOut">Log Out</a></li>
+                  </ul>
+                  </div>
+                  <?php else : ?>
                   <div class="block" id="sidebarUser">
                      <span class="blockTitle">User</span>
                      <form method="post" action="/login/signIn">
@@ -60,6 +72,7 @@
                         </table>
                      </form>
                   </div>
+                  <?php endif; ?>
                   <div class="block" id="notification">
                      <span class="blockTitle">Notifications</span>
                      <ul>
