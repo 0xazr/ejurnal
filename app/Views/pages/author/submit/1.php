@@ -1,6 +1,13 @@
 <?= $this->extend('layout/template'); ?>
 
 <?= $this->section('content'); ?>
+<div id="breadcrumb">
+	<a href="/index">Home</a> &gt;
+	<a href="/user" class="hierarchyLink">User</a> &gt;
+	<a href="/author" class="hierarchyLink">Author</a> &gt;
+	<a href="/author" class="hierarchyLink">Submissions</a> &gt;
+	<a href="/author/submit/1" class="current">New Submission</a>
+</div>
 <h2>Step 1. Starting the Submission</h2>
 
 
@@ -25,7 +32,7 @@
 
 <div class="separator"></div>
 
-<form id="submit" method="post" action="https://iptek.its.ac.id/index.php/itj/author/saveSubmit/1" onsubmit="return checkSubmissionChecklist()">
+<form id="submit" method="post" action="/author/saveSubmit/1" onsubmit="return checkSubmissionChecklist()">
 
 
 				<input type="hidden" name="sectionId" value="0" />
@@ -80,7 +87,7 @@ function checkSubmissionChecklist() {
 		</tr>
 						<tr valign="top">
 			<td width="5%"><input type="checkbox" id="checklist-6" name="checklist[]" value="5" /></td>
-			<td width="95%"><label for="checklist-6">If submitting to a peer-reviewed section of the journal, the instructions in <a href="javascript:openHelp('https://iptek.its.ac.id/index.php/itj/help/view/editorial/topic/000044')">Ensuring a Blind Review</a> have been followed.</label></td>
+			<td width="95%"><label for="checklist-6">If submitting to a peer-reviewed section of the journal, the instructions in <a href="javascript:openHelp('/help/view/editorial/topic/000044')">Ensuring a Blind Review</a> have been followed.</label></td>
 		</tr>
 		</table>
 	</div>	<div class="separator"></div>
@@ -108,7 +115,7 @@ The names and email addresses entered in this journal site will be used exclusiv
 </div>
 <div class="separator"></div>
 
-<p><input type="submit" value="Save and continue" class="button defaultButton" /> <input type="button" value="Cancel" class="button" onclick="document.location.href='https://iptek.its.ac.id/index.php/itj/author'" /></p>
+<p><input type="submit" value="Save and continue" class="button defaultButton" /> <input type="button" value="Cancel" class="button" onclick="document.location.href='/author'" /></p>
 
 <p><span class="formRequired">* Denotes required field</span></p>
 

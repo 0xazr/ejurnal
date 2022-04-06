@@ -2,6 +2,12 @@
 <?= $this->extend('layout/template'); ?>
 
 <?= $this->section('content'); ?>
+<div id="breadcrumb">
+	<a href="/">Home</a> &gt;
+	<a href="/user" class="hierarchyLink">User</a> &gt;
+	<a href="/author" class="hierarchyLink">Author</a> &gt;
+	<a href="/author/" class="current">Active Submissions</a>
+</div>
 <h2>Active Submissions</h2>
 
 
@@ -10,8 +16,8 @@
 
 
 <ul class="menu">
-	<li class="current"><a href="https://iptek.its.ac.id/index.php/itj/author/index/active">Active</a></li>
-	<li><a href="https://iptek.its.ac.id/index.php/itj/author/index/completed">Archive</a></li>
+	<li class="current"><a href="/author/index/active">Active</a></li>
+	<li><a href="/author/index/completed">Archive</a></li>
 </ul>
 
 <br />
@@ -20,41 +26,30 @@
 <table class="listing" width="100%">
 	<tr><td colspan="6" class="headseparator">&nbsp;</td></tr>
 	<tr class="heading" valign="bottom">
-		<td width="5%"><a href="https://iptek.its.ac.id/index.php/itj/author/index?sort=id&amp;sortDirection=1">ID</a></td>
-		<td width="5%"><span class="disabled">MM-DD</span><br /><a href="https://iptek.its.ac.id/index.php/itj/author/index?sort=submitDate&amp;sortDirection=1">Submit</a></td>
-		<td width="5%"><a href="https://iptek.its.ac.id/index.php/itj/author/index?sort=section&amp;sortDirection=1">Sec</a></td>
-		<td width="25%"><a href="https://iptek.its.ac.id/index.php/itj/author/index?sort=authors&amp;sortDirection=1">Authors</a></td>
-		<td width="35%"><a href="https://iptek.its.ac.id/index.php/itj/author/index?sort=title&amp;sortDirection=2" style="font-weight:bold">Title</a></td>
-		<td width="25%" align="right"><a href="https://iptek.its.ac.id/index.php/itj/author/index?sort=status&amp;sortDirection=1">Status</a></td>
+		<td width="5%"><a href="/author/index?sort=id&amp;sortDirection=1">ID</a></td>
+		<td width="5%"><span class="disabled">MM-DD</span><br /><a href="/author/index?sort=submitDate&amp;sortDirection=1">Submit</a></td>
+		<td width="5%"><a href="/author/index?sort=section&amp;sortDirection=1">Sec</a></td>
+		<td width="25%"><a href="/author/index?sort=authors&amp;sortDirection=1">Authors</a></td>
+		<td width="35%"><a href="/author/index?sort=title&amp;sortDirection=2" style="font-weight:bold">Title</a></td>
+		<td width="25%" align="right"><a href="/author/index?sort=status&amp;sortDirection=1">Status</a></td>
 	</tr>
-	<tr><td colspan="6" class="headseparator">&nbsp;</td></tr>
-
-		
-	<tr valign="top">
-		<td>12620</td>
-		<td>&mdash;</td>
-		<td>ART</td>
-		<td>Niani</td>
-					<td><a href="https://iptek.its.ac.id/index.php/itj/author/submit/3?articleId=12620" class="action">Untitled</a></td>
-			<td align="right">Incomplete<br /><a href="https://iptek.its.ac.id/index.php/itj/author/deleteSubmission/12620" class="action" onclick="confirm('Are you sure you want to delete this incomplete submission?')">Delete</a></td>
-		
-	</tr>
-
+	
+	<!-- Tampilan ketika tidak ada submission -->		
 	<tr>
-		<td colspan="6" class="separator">&nbsp;</td>
+		<td colspan="6" class="headseparator">&nbsp;</td>
 	</tr>
-		
+	
 	<tr valign="top">
-		<td>12621</td>
-		<td>&mdash;</td>
-		<td>ART</td>
-		<td>Niani</td>
-					<td><a href="https://iptek.its.ac.id/index.php/itj/author/submit/3?articleId=12621" class="action">Untitled</a></td>
-			<td align="right">Incomplete<br /><a href="https://iptek.its.ac.id/index.php/itj/author/deleteSubmission/12621" class="action" onclick="confirm('Are you sure you want to delete this incomplete submission?')">Delete</a></td>
-		
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td><a>No Submission.</a></td>
+		<td></td>
 	</tr>
 
-	<tr>
+	<!-- Tampilan ketika ada submission -->
+	<!-- <tr>
 		<td colspan="6" class="separator">&nbsp;</td>
 	</tr>
 		
@@ -63,8 +58,8 @@
 		<td>&mdash;</td>
 		<td>ART</td>
 		<td>Niani</td>
-					<td><a href="https://iptek.its.ac.id/index.php/itj/author/submit/3?articleId=12539" class="action">Untitled</a></td>
-			<td align="right">Incomplete<br /><a href="https://iptek.its.ac.id/index.php/itj/author/deleteSubmission/12539" class="action" onclick="confirm('Are you sure you want to delete this incomplete submission?')">Delete</a></td>
+					<td><a href="/author/submit/3?articleId=12539" class="action">Untitled</a></td>
+			<td align="right">Incomplete<br /><a href="/author/deleteSubmission/12539" class="action" onclick="confirm('Are you sure you want to delete this incomplete submission?')">Delete</a></td>
 		
 	</tr>
 
@@ -77,8 +72,8 @@
 		<td>&mdash;</td>
 		<td>ART</td>
 		<td>Niani</td>
-					<td><a href="https://iptek.its.ac.id/index.php/itj/author/submit/2?articleId=12538" class="action">Untitled</a></td>
-			<td align="right">Incomplete<br /><a href="https://iptek.its.ac.id/index.php/itj/author/deleteSubmission/12538" class="action" onclick="confirm('Are you sure you want to delete this incomplete submission?')">Delete</a></td>
+					<td><a href="/author/submit/2?articleId=12538" class="action">Untitled</a></td>
+			<td align="right">Incomplete<br /><a href="/author/deleteSubmission/12538" class="action" onclick="confirm('Are you sure you want to delete this incomplete submission?')">Delete</a></td>
 		
 	</tr>
 
@@ -91,8 +86,8 @@
 		<td>&mdash;</td>
 		<td>ART</td>
 		<td>Niani</td>
-					<td><a href="https://iptek.its.ac.id/index.php/itj/author/submit/2?articleId=12525" class="action">Untitled</a></td>
-			<td align="right">Incomplete<br /><a href="https://iptek.its.ac.id/index.php/itj/author/deleteSubmission/12525" class="action" onclick="confirm('Are you sure you want to delete this incomplete submission?')">Delete</a></td>
+					<td><a href="/author/submit/2?articleId=12525" class="action">Untitled</a></td>
+			<td align="right">Incomplete<br /><a href="/author/deleteSubmission/12525" class="action" onclick="confirm('Are you sure you want to delete this incomplete submission?')">Delete</a></td>
 		
 	</tr>
 
@@ -105,8 +100,8 @@
 		<td>&mdash;</td>
 		<td>ART</td>
 		<td>Niani</td>
-					<td><a href="https://iptek.its.ac.id/index.php/itj/author/submit/3?articleId=12531" class="action">Untitled</a></td>
-			<td align="right">Incomplete<br /><a href="https://iptek.its.ac.id/index.php/itj/author/deleteSubmission/12531" class="action" onclick="confirm('Are you sure you want to delete this incomplete submission?')">Delete</a></td>
+					<td><a href="/author/submit/3?articleId=12531" class="action">Untitled</a></td>
+			<td align="right">Incomplete<br /><a href="/author/deleteSubmission/12531" class="action" onclick="confirm('Are you sure you want to delete this incomplete submission?')">Delete</a></td>
 		
 	</tr>
 
@@ -119,8 +114,8 @@
 		<td>&mdash;</td>
 		<td>ART</td>
 		<td>Niani</td>
-					<td><a href="https://iptek.its.ac.id/index.php/itj/author/submit/3?articleId=12534" class="action">Untitled</a></td>
-			<td align="right">Incomplete<br /><a href="https://iptek.its.ac.id/index.php/itj/author/deleteSubmission/12534" class="action" onclick="confirm('Are you sure you want to delete this incomplete submission?')">Delete</a></td>
+					<td><a href="/author/submit/3?articleId=12534" class="action">Untitled</a></td>
+			<td align="right">Incomplete<br /><a href="/author/deleteSubmission/12534" class="action" onclick="confirm('Are you sure you want to delete this incomplete submission?')">Delete</a></td>
 		
 	</tr>
 
@@ -133,8 +128,8 @@
 		<td>&mdash;</td>
 		<td>ART</td>
 		<td>Niani</td>
-					<td><a href="https://iptek.its.ac.id/index.php/itj/author/submit/3?articleId=12535" class="action">Untitled</a></td>
-			<td align="right">Incomplete<br /><a href="https://iptek.its.ac.id/index.php/itj/author/deleteSubmission/12535" class="action" onclick="confirm('Are you sure you want to delete this incomplete submission?')">Delete</a></td>
+					<td><a href="/author/submit/3?articleId=12535" class="action">Untitled</a></td>
+			<td align="right">Incomplete<br /><a href="/author/deleteSubmission/12535" class="action" onclick="confirm('Are you sure you want to delete this incomplete submission?')">Delete</a></td>
 		
 	</tr>
 
@@ -147,8 +142,8 @@
 		<td>&mdash;</td>
 		<td>ART</td>
 		<td>Niani</td>
-					<td><a href="https://iptek.its.ac.id/index.php/itj/author/submit/2?articleId=12541" class="action">Untitled</a></td>
-			<td align="right">Incomplete<br /><a href="https://iptek.its.ac.id/index.php/itj/author/deleteSubmission/12541" class="action" onclick="confirm('Are you sure you want to delete this incomplete submission?')">Delete</a></td>
+					<td><a href="/author/submit/2?articleId=12541" class="action">Untitled</a></td>
+			<td align="right">Incomplete<br /><a href="/author/deleteSubmission/12541" class="action" onclick="confirm('Are you sure you want to delete this incomplete submission?')">Delete</a></td>
 		
 	</tr>
 
@@ -161,8 +156,8 @@
 		<td>&mdash;</td>
 		<td>ART</td>
 		<td>Niani</td>
-					<td><a href="https://iptek.its.ac.id/index.php/itj/author/submit/2?articleId=12545" class="action">Untitled</a></td>
-			<td align="right">Incomplete<br /><a href="https://iptek.its.ac.id/index.php/itj/author/deleteSubmission/12545" class="action" onclick="confirm('Are you sure you want to delete this incomplete submission?')">Delete</a></td>
+					<td><a href="/author/submit/2?articleId=12545" class="action">Untitled</a></td>
+			<td align="right">Incomplete<br /><a href="/author/deleteSubmission/12545" class="action" onclick="confirm('Are you sure you want to delete this incomplete submission?')">Delete</a></td>
 		
 	</tr>
 
@@ -175,8 +170,8 @@
 		<td>&mdash;</td>
 		<td>ART</td>
 		<td>Niani</td>
-					<td><a href="https://iptek.its.ac.id/index.php/itj/author/submit/3?articleId=12546" class="action">Untitled</a></td>
-			<td align="right">Incomplete<br /><a href="https://iptek.its.ac.id/index.php/itj/author/deleteSubmission/12546" class="action" onclick="confirm('Are you sure you want to delete this incomplete submission?')">Delete</a></td>
+					<td><a href="/author/submit/3?articleId=12546" class="action">Untitled</a></td>
+			<td align="right">Incomplete<br /><a href="/author/deleteSubmission/12546" class="action" onclick="confirm('Are you sure you want to delete this incomplete submission?')">Delete</a></td>
 		
 	</tr>
 
@@ -189,8 +184,8 @@
 		<td>&mdash;</td>
 		<td>ART</td>
 		<td>Niani</td>
-					<td><a href="https://iptek.its.ac.id/index.php/itj/author/submit/3?articleId=12547" class="action">Untitled</a></td>
-			<td align="right">Incomplete<br /><a href="https://iptek.its.ac.id/index.php/itj/author/deleteSubmission/12547" class="action" onclick="confirm('Are you sure you want to delete this incomplete submission?')">Delete</a></td>
+					<td><a href="/author/submit/3?articleId=12547" class="action">Untitled</a></td>
+			<td align="right">Incomplete<br /><a href="/author/deleteSubmission/12547" class="action" onclick="confirm('Are you sure you want to delete this incomplete submission?')">Delete</a></td>
 		
 	</tr>
 
@@ -203,8 +198,8 @@
 		<td>&mdash;</td>
 		<td>ART</td>
 		<td>Niani</td>
-					<td><a href="https://iptek.its.ac.id/index.php/itj/author/submit/2?articleId=12564" class="action">Untitled</a></td>
-			<td align="right">Incomplete<br /><a href="https://iptek.its.ac.id/index.php/itj/author/deleteSubmission/12564" class="action" onclick="confirm('Are you sure you want to delete this incomplete submission?')">Delete</a></td>
+					<td><a href="/author/submit/2?articleId=12564" class="action">Untitled</a></td>
+			<td align="right">Incomplete<br /><a href="/author/deleteSubmission/12564" class="action" onclick="confirm('Are you sure you want to delete this incomplete submission?')">Delete</a></td>
 		
 	</tr>
 
@@ -217,8 +212,8 @@
 		<td>&mdash;</td>
 		<td>ART</td>
 		<td>Niani</td>
-					<td><a href="https://iptek.its.ac.id/index.php/itj/author/submit/2?articleId=12565" class="action">Untitled</a></td>
-			<td align="right">Incomplete<br /><a href="https://iptek.its.ac.id/index.php/itj/author/deleteSubmission/12565" class="action" onclick="confirm('Are you sure you want to delete this incomplete submission?')">Delete</a></td>
+					<td><a href="/author/submit/2?articleId=12565" class="action">Untitled</a></td>
+			<td align="right">Incomplete<br /><a href="/author/deleteSubmission/12565" class="action" onclick="confirm('Are you sure you want to delete this incomplete submission?')">Delete</a></td>
 		
 	</tr>
 
@@ -231,8 +226,8 @@
 		<td>&mdash;</td>
 		<td>ART</td>
 		<td>Niani</td>
-					<td><a href="https://iptek.its.ac.id/index.php/itj/author/submit/3?articleId=12566" class="action">Untitled</a></td>
-			<td align="right">Incomplete<br /><a href="https://iptek.its.ac.id/index.php/itj/author/deleteSubmission/12566" class="action" onclick="confirm('Are you sure you want to delete this incomplete submission?')">Delete</a></td>
+					<td><a href="/author/submit/3?articleId=12566" class="action">Untitled</a></td>
+			<td align="right">Incomplete<br /><a href="/author/deleteSubmission/12566" class="action" onclick="confirm('Are you sure you want to delete this incomplete submission?')">Delete</a></td>
 		
 	</tr>
 
@@ -245,8 +240,8 @@
 		<td>&mdash;</td>
 		<td>ART</td>
 		<td>Niani</td>
-					<td><a href="https://iptek.its.ac.id/index.php/itj/author/submit/3?articleId=12567" class="action">Untitled</a></td>
-			<td align="right">Incomplete<br /><a href="https://iptek.its.ac.id/index.php/itj/author/deleteSubmission/12567" class="action" onclick="confirm('Are you sure you want to delete this incomplete submission?')">Delete</a></td>
+					<td><a href="/author/submit/3?articleId=12567" class="action">Untitled</a></td>
+			<td align="right">Incomplete<br /><a href="/author/deleteSubmission/12567" class="action" onclick="confirm('Are you sure you want to delete this incomplete submission?')">Delete</a></td>
 		
 	</tr>
 
@@ -259,8 +254,8 @@
 		<td>&mdash;</td>
 		<td>ART</td>
 		<td>Niani</td>
-					<td><a href="https://iptek.its.ac.id/index.php/itj/author/submit/2?articleId=12568" class="action">Untitled</a></td>
-			<td align="right">Incomplete<br /><a href="https://iptek.its.ac.id/index.php/itj/author/deleteSubmission/12568" class="action" onclick="confirm('Are you sure you want to delete this incomplete submission?')">Delete</a></td>
+					<td><a href="/author/submit/2?articleId=12568" class="action">Untitled</a></td>
+			<td align="right">Incomplete<br /><a href="/author/deleteSubmission/12568" class="action" onclick="confirm('Are you sure you want to delete this incomplete submission?')">Delete</a></td>
 		
 	</tr>
 
@@ -273,8 +268,8 @@
 		<td>&mdash;</td>
 		<td>ART</td>
 		<td>Niani</td>
-					<td><a href="https://iptek.its.ac.id/index.php/itj/author/submit/3?articleId=12569" class="action">Untitled</a></td>
-			<td align="right">Incomplete<br /><a href="https://iptek.its.ac.id/index.php/itj/author/deleteSubmission/12569" class="action" onclick="confirm('Are you sure you want to delete this incomplete submission?')">Delete</a></td>
+					<td><a href="/author/submit/3?articleId=12569" class="action">Untitled</a></td>
+			<td align="right">Incomplete<br /><a href="/author/deleteSubmission/12569" class="action" onclick="confirm('Are you sure you want to delete this incomplete submission?')">Delete</a></td>
 		
 	</tr>
 
@@ -287,8 +282,8 @@
 		<td>&mdash;</td>
 		<td>ART</td>
 		<td>Niani</td>
-					<td><a href="https://iptek.its.ac.id/index.php/itj/author/submit/3?articleId=12570" class="action">Untitled</a></td>
-			<td align="right">Incomplete<br /><a href="https://iptek.its.ac.id/index.php/itj/author/deleteSubmission/12570" class="action" onclick="confirm('Are you sure you want to delete this incomplete submission?')">Delete</a></td>
+					<td><a href="/author/submit/3?articleId=12570" class="action">Untitled</a></td>
+			<td align="right">Incomplete<br /><a href="/author/deleteSubmission/12570" class="action" onclick="confirm('Are you sure you want to delete this incomplete submission?')">Delete</a></td>
 		
 	</tr>
 
@@ -301,8 +296,8 @@
 		<td>&mdash;</td>
 		<td>ART</td>
 		<td>Niani</td>
-					<td><a href="https://iptek.its.ac.id/index.php/itj/author/submit/2?articleId=12571" class="action">Untitled</a></td>
-			<td align="right">Incomplete<br /><a href="https://iptek.its.ac.id/index.php/itj/author/deleteSubmission/12571" class="action" onclick="confirm('Are you sure you want to delete this incomplete submission?')">Delete</a></td>
+					<td><a href="/author/submit/2?articleId=12571" class="action">Untitled</a></td>
+			<td align="right">Incomplete<br /><a href="/author/deleteSubmission/12571" class="action" onclick="confirm('Are you sure you want to delete this incomplete submission?')">Delete</a></td>
 		
 	</tr>
 
@@ -315,8 +310,8 @@
 		<td>&mdash;</td>
 		<td>ART</td>
 		<td>Niani</td>
-					<td><a href="https://iptek.its.ac.id/index.php/itj/author/submit/3?articleId=12647" class="action">Untitled</a></td>
-			<td align="right">Incomplete<br /><a href="https://iptek.its.ac.id/index.php/itj/author/deleteSubmission/12647" class="action" onclick="confirm('Are you sure you want to delete this incomplete submission?')">Delete</a></td>
+					<td><a href="/author/submit/3?articleId=12647" class="action">Untitled</a></td>
+			<td align="right">Incomplete<br /><a href="/author/deleteSubmission/12647" class="action" onclick="confirm('Are you sure you want to delete this incomplete submission?')">Delete</a></td>
 		
 	</tr>
 
@@ -329,8 +324,8 @@
 		<td>&mdash;</td>
 		<td>ART</td>
 		<td>Niani</td>
-					<td><a href="https://iptek.its.ac.id/index.php/itj/author/submit/2?articleId=12648" class="action">Untitled</a></td>
-			<td align="right">Incomplete<br /><a href="https://iptek.its.ac.id/index.php/itj/author/deleteSubmission/12648" class="action" onclick="confirm('Are you sure you want to delete this incomplete submission?')">Delete</a></td>
+					<td><a href="/author/submit/2?articleId=12648" class="action">Untitled</a></td>
+			<td align="right">Incomplete<br /><a href="/author/deleteSubmission/12648" class="action" onclick="confirm('Are you sure you want to delete this incomplete submission?')">Delete</a></td>
 		
 	</tr>
 
@@ -343,8 +338,8 @@
 		<td>&mdash;</td>
 		<td>ART</td>
 		<td>Niani</td>
-					<td><a href="https://iptek.its.ac.id/index.php/itj/author/submit/3?articleId=12652" class="action">Untitled</a></td>
-			<td align="right">Incomplete<br /><a href="https://iptek.its.ac.id/index.php/itj/author/deleteSubmission/12652" class="action" onclick="confirm('Are you sure you want to delete this incomplete submission?')">Delete</a></td>
+					<td><a href="/author/submit/3?articleId=12652" class="action">Untitled</a></td>
+			<td align="right">Incomplete<br /><a href="/author/deleteSubmission/12652" class="action" onclick="confirm('Are you sure you want to delete this incomplete submission?')">Delete</a></td>
 		
 	</tr>
 
@@ -357,8 +352,8 @@
 		<td>&mdash;</td>
 		<td>ART</td>
 		<td>Niani</td>
-					<td><a href="https://iptek.its.ac.id/index.php/itj/author/submit/3?articleId=12653" class="action">Untitled</a></td>
-			<td align="right">Incomplete<br /><a href="https://iptek.its.ac.id/index.php/itj/author/deleteSubmission/12653" class="action" onclick="confirm('Are you sure you want to delete this incomplete submission?')">Delete</a></td>
+					<td><a href="/author/submit/3?articleId=12653" class="action">Untitled</a></td>
+			<td align="right">Incomplete<br /><a href="/author/deleteSubmission/12653" class="action" onclick="confirm('Are you sure you want to delete this incomplete submission?')">Delete</a></td>
 		
 	</tr>
 
@@ -371,8 +366,8 @@
 		<td>&mdash;</td>
 		<td>ART</td>
 		<td>Niani</td>
-					<td><a href="https://iptek.its.ac.id/index.php/itj/author/submit/2?articleId=12658" class="action">Untitled</a></td>
-			<td align="right">Incomplete<br /><a href="https://iptek.its.ac.id/index.php/itj/author/deleteSubmission/12658" class="action" onclick="confirm('Are you sure you want to delete this incomplete submission?')">Delete</a></td>
+					<td><a href="/author/submit/2?articleId=12658" class="action">Untitled</a></td>
+			<td align="right">Incomplete<br /><a href="/author/deleteSubmission/12658" class="action" onclick="confirm('Are you sure you want to delete this incomplete submission?')">Delete</a></td>
 		
 	</tr>
 
@@ -381,14 +376,14 @@
 	</tr>
 	<tr>
 		<td colspan="4" align="left">1 - 25 of 61 Items</td>
-		<td colspan="2" align="right"><strong>1</strong>&nbsp;<a href="https://iptek.its.ac.id/index.php/itj/author/index?sort=title&amp;sortDirection=1&amp;submissionsPage=2#submissions">2</a>&nbsp;<a href="https://iptek.its.ac.id/index.php/itj/author/index?sort=title&amp;sortDirection=1&amp;submissionsPage=3#submissions">3</a>&nbsp;<a href="https://iptek.its.ac.id/index.php/itj/author/index?sort=title&amp;sortDirection=1&amp;submissionsPage=2#submissions">&gt;</a>&nbsp;<a href="https://iptek.its.ac.id/index.php/itj/author/index?sort=title&amp;sortDirection=1&amp;submissionsPage=3#submissions">&gt;&gt;</a>&nbsp;</td>
-	</tr>
+		<td colspan="2" align="right"><strong>1</strong>&nbsp;<a href="/author/index?sort=title&amp;sortDirection=1&amp;submissionsPage=2#submissions">2</a>&nbsp;<a href="/author/index?sort=title&amp;sortDirection=1&amp;submissionsPage=3#submissions">3</a>&nbsp;<a href="/author/index?sort=title&amp;sortDirection=1&amp;submissionsPage=2#submissions">&gt;</a>&nbsp;<a href="/author/index?sort=title&amp;sortDirection=1&amp;submissionsPage=3#submissions">&gt;&gt;</a>&nbsp;</td>
+	</tr> -->
 </table>
 </div>
 <div id="submitStart">
 <h4>Start a New Submission</h4>
 
-<a href="https://iptek.its.ac.id/index.php/itj/author/submit" class="action">Click here</a> to go to step one of the five-step submission process.<br />
+<a href="/author/submit" class="action">Click here</a> to go to step one of the five-step submission process.<br />
 </div>
 
 
@@ -409,17 +404,17 @@ function toggleChecked() {
 
 </script>
 
-<h3>Refbacks</h3>
+<!-- <h3>Refbacks</h3>
 
 <ul class="menu">
-	<li class="current"><a href="https://iptek.its.ac.id/index.php/itj/author/index?referralFilter=">All</a></li>
-	<li><a href="https://iptek.its.ac.id/index.php/itj/author/index?referralFilter=1">New</a></li>
-	<li><a href="https://iptek.its.ac.id/index.php/itj/author/index?referralFilter=2">Published</a></li>
-	<li><a href="https://iptek.its.ac.id/index.php/itj/author/index?referralFilter=3">Ignored</a></li>
+	<li class="current"><a href="/author/index?referralFilter=">All</a></li>
+	<li><a href="/author/index?referralFilter=1">New</a></li>
+	<li><a href="/author/index?referralFilter=2">Published</a></li>
+	<li><a href="/author/index?referralFilter=3">Ignored</a></li>
 </ul>
 
 <div id="referrals">
-<form action="https://iptek.its.ac.id/index.php/itj/referral/bulkAction" method="post">
+<form action="/referral/bulkAction" method="post">
 <table width="100%" class="listing">
 	<tr><td class="headseparator" colspan="8">&nbsp;</td></tr>
 	<tr class="heading" valign="bottom">
@@ -437,12 +432,12 @@ function toggleChecked() {
 		<td><input type="checkbox" name="referralId[]" value="135051"/></td>
 		<td>2022-04-05</td>
 		<td>1</td>
-		<td><a href="https://iptek.its.ac.id/index.php/itj/issue/current">https://iptek.its.ac.id/index.php/itj/issue/curr...</a></td>
+		<td><a href="/issue/current">/issue/curr...</a></td>
 		<td>Flexural And Shear Behaviour Of Reinforced Concrete Slab With Pvc Pipe As A Cavity Forming In Two-Way System</td>
 		<td></td>
 		<td>New</td>
 		<td align="right">
-			<a class="action" href="https://iptek.its.ac.id/index.php/itj/referral/editReferral/135051">Edit</a>&nbsp;|&nbsp;<a class="action" onclick="confirm('Are you sure you wish to delete the selected refback(s)?')" href="https://iptek.its.ac.id/index.php/itj/referral/deleteReferral/135051">Delete</a>
+			<a class="action" href="/referral/editReferral/135051">Edit</a>&nbsp;|&nbsp;<a class="action" onclick="confirm('Are you sure you wish to delete the selected refback(s)?')" href="/referral/deleteReferral/135051">Delete</a>
 		</td>
 	</tr>
 	<tr valign="top">
@@ -460,6 +455,6 @@ function toggleChecked() {
 	<input type="button" value="Select All" class="button" onclick="toggleChecked()" />
 </p>
 </form>
-</div>
+</div> -->
 </div><!-- content -->
 <?= $this->endSection(); ?>

@@ -7,7 +7,8 @@ class Home extends BaseController
     public function index()
     {
         $data = [
-            'title' => 'Home'
+            'title' => 'Home',
+            'contentTitle' => 'Information Technology Journal'
         ];
         echo view('pages/home', $data);
     }

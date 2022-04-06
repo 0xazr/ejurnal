@@ -1,18 +1,24 @@
 <?= $this->extend('layout/template'); ?>
 
 <?= $this->section('content'); ?>
-
-<h2>Step 3. Entering the Submission's Metadata</h2>
+            <div id="breadcrumb">
+               <a href="/index">Home</a> &gt;
+               <a href="/user" class="hierarchyLink">User</a> &gt;
+               <a href="/author" class="hierarchyLink">Author</a> &gt;
+               <a href="/author" class="hierarchyLink">Submissions</a> &gt;
+               <a href="/author/submit/3?articleId=12525" class="current">New Submission</a>
+            </div>
+            <h2>Step 3. Entering the Submission's Metadata</h2>
             <div id="content">
                <ul class="steplist">
-                  <li id="step1" ><a href="https://iptek.its.ac.id/index.php/itj/author/submit/1?articleId=12536">1. Start</a></li>
-                  <li id="step2" ><a href="https://iptek.its.ac.id/index.php/itj/author/submit/2?articleId=12536">2. Upload Submission</a></li>
+                  <li id="step1" ><a href="/author/submit/1?articleId=12536">1. Start</a></li>
+                  <li id="step2" ><a href="/author/submit/2?articleId=12536">2. Upload Submission</a></li>
                   <li id="step3"  class="current">3. Enter Metadata</li>
                   <li id="step4" >4. Upload Supplementary Files</li>
                   <li id="step5" >5. Confirmation</li>
                </ul>
                <div class="separator"></div>
-               <form id="submit" method="post" action="https://iptek.its.ac.id/index.php/itj/author/saveSubmit/3">
+               <form id="submit" method="post" action="/author/saveSubmit/3">
                   <input type="hidden" name="articleId" value="12536" />
                   <div id="authors">
                      <h3>Authors</h3>
@@ -29,7 +35,7 @@
                               <label for="authors-0-firstName" >
                               First Name *</label>
                            </td>
-                           <td width="80%" class="value"><input type="text" class="textField" name="authors[0][firstName]" id="authors-0-firstName" value="Cyntia" size="20" maxlength="40" /></td>
+                           <td width="80%" class="value"><input type="text" class="textField" name="authors[0][firstName]" id="authors-0-firstName" value="First Name" size="20" maxlength="40" /></td>
                         </tr>
                         <tr valign="top">
                            <td width="20%" class="label">
@@ -43,14 +49,14 @@
                               <label for="authors-0-lastName" >
                               Last Name *</label>
                            </td>
-                           <td width="80%" class="value"><input type="text" class="textField" name="authors[0][lastName]" id="authors-0-lastName" value="Niani" size="20" maxlength="90" /></td>
+                           <td width="80%" class="value"><input type="text" class="textField" name="authors[0][lastName]" id="authors-0-lastName" value="Last Name" size="20" maxlength="90" /></td>
                         </tr>
                         <tr valign="top">
                            <td width="20%" class="label">
                               <label for="authors-0-email" >
                               Email *</label>
                            </td>
-                           <td width="80%" class="value"><input type="text" class="textField" name="authors[0][email]" id="authors-0-email" value="cyntian@ppi.its.ac.id" size="30" maxlength="90" /></td>
+                           <td width="80%" class="value"><input type="text" class="textField" name="authors[0][email]" id="authors-0-email" value="user@mail.com" size="30" maxlength="90" /></td>
                         </tr>
                         <tr valign="top">
                            <td class="label">
@@ -417,7 +423,7 @@
                      </table>
                      <div class="separator"></div>
                   </div>
-                  <p><input type="submit" value="Save and continue" class="button defaultButton" /> <input type="button" value="Cancel" class="button" onclick="confirmAction('https://iptek.its.ac.id/index.php/itj/author', 'You can complete this submission at a later date by selecting Active Submissions from the Author home.')" /></p>
+                  <p><input type="submit" value="Save and continue" class="button defaultButton" /> <input type="button" value="Cancel" class="button" onclick="confirmAction('/author', 'You can complete this submission at a later date by selecting Active Submissions from the Author home.')" /></p>
                   <p><span class="formRequired">* Denotes required field</span></p>
                </form>
             </div>

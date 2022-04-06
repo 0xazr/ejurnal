@@ -1,3 +1,6 @@
+<?php
+   $userSignedIn = true;
+?>
 <!-- HEADER START -->
 <!DOCTYPE html>
 <html lang="en">
@@ -11,7 +14,7 @@
       <link rel="stylesheet" href="/assets/styles/sidebar.css" type="text/css" />
       <link rel="stylesheet" href="/assets/styles/rightSidebar.css" type="text/css" />
       <!-- Title berganti sesuai dengan judul halaman -->
-      <title><?= $title ?></title>
+      <title><?= $title; ?></title>
    </head>
    <body>
       <div id="container">
@@ -31,14 +34,14 @@
                      <a class="blockTitle" href="http://pkp.sfu.ca/ojs/" id="developedBy">Open Journal Systems</a>
                   </div>
                   <div class="block" id="sidebarHelp">
-                     <a class="blockTitle" href="javascript:openHelp('https://iptek.its.ac.id/index.php/itj/help/view/user/topic/000001')">Journal Help</a>
+                     <a class="blockTitle" href="javascript:openHelp('/help/view/user/topic/000001')">Journal Help</a>
                   </div>
 
                   <!-- SidebarUser berganti ketika user sudah login -->
                   
                   <div class="block" id="sidebarUser">
                      <span class="blockTitle">User</span>
-                     <form method="post" action="https://iptek.its.ac.id/index.php/itj/login/signIn">
+                     <form method="post" action="/login/signIn">
                         <table>
                            <tr>
                               <td><label for="sidebar-username">Username</label></td>
@@ -60,14 +63,14 @@
                   <div class="block" id="notification">
                      <span class="blockTitle">Notifications</span>
                      <ul>
-                        <li><a href="https://iptek.its.ac.id/index.php/itj/notification">View</a></li>
-                        <li><a href="https://iptek.its.ac.id/index.php/itj/notification/subscribeMailList">Subscribe</a></li>
+                        <li><a href="/notification">View</a></li>
+                        <li><a href="/notification/subscribeMailList">Subscribe</a></li>
                      </ul>
                   </div>
                   <div class="block" id="sidebarNavigation">
                      <span class="blockTitle">Journal Content</span>
                      <span class="blockSubtitle">Search</span>
-                     <form id="simpleSearchForm" method="post" action="https://iptek.its.ac.id/index.php/itj/search/search">
+                     <form id="simpleSearchForm" method="post" action="/search/search">
                         <table id="simpleSearchInput">
                            <tr>
                               <td>
@@ -94,10 +97,10 @@
                      <br />
                      <span class="blockSubtitle">Browse</span>
                      <ul>
-                        <li><a href="https://iptek.its.ac.id/index.php/itj/issue/archive">By Issue</a></li>
-                        <li><a href="https://iptek.its.ac.id/index.php/itj/search/authors">By Author</a></li>
-                        <li><a href="https://iptek.its.ac.id/index.php/itj/search/titles">By Title</a></li>
-                        <li><a href="https://iptek.its.ac.id/index.php/index">Other Journals</a></li>
+                        <li><a href="/issue/archive">By Issue</a></li>
+                        <li><a href="/search/authors">By Author</a></li>
+                        <li><a href="/search/titles">By Title</a></li>
+                        <li><a href="/">Other Journals</a></li>
                      </ul>
                   </div>
                   <div class="block" id="sidebarFontSize" style="margin-bottom: 4px;">
@@ -108,9 +111,9 @@
                   <div class="block" id="sidebarInformation">
                      <span class="blockTitle">Information</span>
                      <ul>
-                        <li><a href="https://iptek.its.ac.id/index.php/itj/information/readers">For Readers</a></li>
-                        <li><a href="https://iptek.its.ac.id/index.php/itj/information/authors">For Authors</a></li>
-                        <li><a href="https://iptek.its.ac.id/index.php/itj/information/librarians">For Librarians</a></li>
+                        <li><a href="/information/readers">For Readers</a></li>
+                        <li><a href="/information/authors">For Authors</a></li>
+                        <li><a href="/information/librarians">For Librarians</a></li>
                      </ul>
                   </div>
                </div>
@@ -120,22 +123,28 @@
 <!-- LINKS START -->
             <div id="main">
                <div id="navbar">
-                 <!-- Menu akan berubah ketika user dalam keadaan login -->
+                  <!-- Menu akan berubah ketika user dalam keadaan login -->
+                  <?php if ($userSignedIn == True) : ?>
                   <ul class="menu">
-                     <li id="home"><a href="https://iptek.its.ac.id/index.php/itj/index">Home</a></li>
-                     <li id="about"><a href="https://iptek.its.ac.id/index.php/itj/about">About</a></li>
-                     <li id="login"><a href="https://iptek.its.ac.id/index.php/itj/login">Login</a></li>
-                     <li id="search"><a href="https://iptek.its.ac.id/index.php/itj/search">Search</a></li>
-                     <li id="current"><a href="https://iptek.its.ac.id/index.php/itj/issue/current">Current</a></li>
-                     <li id="archives"><a href="https://iptek.its.ac.id/index.php/itj/issue/archive">Archives</a></li>
+                     <li id="home"><a href="/">Home</a></li>
+                     <li id="about"><a href="/about">About</a></li>
+                     <li id="userHome"><a href="/user">User Home</a></li>
+                     <li id="search"><a href="/search">Search</a></li>
+                     <li id="current"><a href="/issue/current">Current</a></li>
+                     <li id="archives"><a href="/issue/archive">Archives</a></li>
                   </ul>
+                  <?php else : ?>
+                  <ul class="menu">
+                     <li id="home"><a href="/">Home</a></li>
+                     <li id="about"><a href="/about">About</a></li>
+                     <li id="login"><a href="/login">Login</a></li>
+                     <li id="search"><a href="/search">Search</a></li>
+                     <li id="current"><a href="/issue/current">Current</a></li>
+                     <li id="archives"><a href="/issue/archive">Archives</a></li>
+                  </ul>
+                  <?php endif; ?>
                </div>
 
-               <!-- Breadcumb akan berubah tergantung dari halaman pagenya -->
-               <div id="breadcrumb">
-                  <a href="https://iptek.its.ac.id/index.php/itj/index">Home</a> &gt;
-                  <a href="https://iptek.its.ac.id/index.php/itj/" class="current">Information Technology Journal</a>
-               </div>
 <!-- LINKS END -->
 
 <!-- CONTENT START -->

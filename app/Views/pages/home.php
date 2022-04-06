@@ -2,7 +2,11 @@
 <?= $this->extend('layout/template'); ?>
 
 <?= $this->section('content'); ?>
-              <h2>Information Technology Journal</h2>
+              <div id="breadcrumb">
+                  <a href="/">Home</a> &gt;
+                  <a href="/" class="current">Information Technology Journal</a>
+               </div>
+              <h2><?= $contentTitle; ?></h2>
               <div id="content">
                 <div>Jurnal ini bertujuan mempublikasikan hasil penelitian di bidang Teknologi Informasi</div>
               </div>

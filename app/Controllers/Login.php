@@ -2,20 +2,24 @@
 
 namespace App\Controllers;
 
-class Home extends BaseController
+class Login extends BaseController
 {
-    public function index()
-    {
-      echo "Halaman login";
-    }
+  public function index()
+  {
+    $data = [
+      'title' => 'Login',
+      'contentTitle' => 'Login Page'
+    ];
+    echo view('pages/login', $data);
+  }
 
-    public function signIn()
-    {
-      echo "Memproses user login";
-    }
+  public function signIn()
+  {
+    echo "Memproses user login";
+  }
 
-    public function signOut()
-    {
-      echo "Memproses user logout";
-    }
+  public function signOut()
+  {
+    echo "Memproses user logout";
+  }
 }
