@@ -3,9 +3,17 @@
 namespace App\Controllers\Author;
 
 use App\Controllers\BaseController;
+use App\Models\SubmissionModel;
 
 class Home extends BaseController
 {
+  protected $submissionModel;
+
+  public function __construct()
+  {
+    $this->submissionModel = new SubmissionModel();
+  }
+
   public function index()
   {
     $data = [
@@ -15,7 +23,7 @@ class Home extends BaseController
     echo view('pages/author/home', $data);
   }
 
-  public function submit($page = 1, $id = 0)
+  public function submit($page = 1, $id = null)
   {
     $data['title'] = "Submission";
 
@@ -55,8 +63,30 @@ class Home extends BaseController
     echo view("pages/author/submit/$page", $data);
   }
 
-  public function saveSubmit()
+  public function saveSubmit($page = 1, $id = null)
   {
-    //do submit
+    if ($id == null) $page = 1;
+    
+    switch($page) {
+      case 1:
+        $data['submission_progress'] = $page;
+        
+        $this->submissionModel->insert($data);
+        break;
+      case 2:
+        $data['submission_id'] = $id;
+        $data['submission_progress'] = $page;
+        
+        $this->submissionModel->whereIn('submission_id', [$id])->set(['submission_progress' => $page])->update();
+        break;
+      case 3:
+        break;
+      case 4:
+        break;
+      case 5:
+        break;
+    }
+
+    echo "test";
   }
 }

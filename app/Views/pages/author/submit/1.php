@@ -33,11 +33,9 @@
 <div class="separator"></div>
 
 <form id="submit" method="post" action="/author/saveSubmit/1" onsubmit="return checkSubmissionChecklist()">
-
-
-				<input type="hidden" name="sectionId" value="0" />
-			<input type="hidden" name="sectionId" value="84" />
-					<input type="hidden" name="locale" value="en_US" />
+	<input type="hidden" name="sectionId" value="0" />
+	<input type="hidden" name="sectionId" value="84" />
+	<input type="hidden" name="locale" value="en_US" />
 	<script type="text/javascript">
 
 <!--
@@ -56,7 +54,7 @@ function checkSubmissionChecklist() {
 	}
 	return true;
 }
-// -->
+ -->
 
 </script>
 

@@ -38,6 +38,8 @@ $routes->get('/author', 'Author\Home::index');
 $routes->get('/author/submit/', 'Author\Home::submit');
 $routes->get('/author/submit/(:num)', 'Author\Home::submit/$1');
 $routes->get('/author/submit/(:num)/(:num)', 'Author\Home::submit/$1/$2');
+$routes->get('/author/saveSubmit/(:num)', 'Author\Home::saveSubmit/$1');
+$routes->get('/author/saveSubmit/(:num)/(:num)', 'Author\Home::saveSubmit/$1/$2');
 
 /*
  * --------------------------------------------------------------------

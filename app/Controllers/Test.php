@@ -2,25 +2,22 @@
 
 namespace App\Controllers;
 
-use \Geeklabs\Breadcrumbs\Breadcrumb;
+use App\Models\TestModel;
 
 class Test extends BaseController
 {
-  public $breadcrumb;
-  
+  protected $testModel;
+
   public function __construct()
   {
-    $this->breadcrumb = new Breadcrumb();
+    $this->testModel = new TestModel();
   }
 
   public function index()
   {
-    $this->breadcrumb->add('Home', '/');
-    $this->breadcrumb->add('Dashboard', '/dashboard');  
-    $this->breadcrumb->add('Customers', '/customers');
+    $test = $this->testModel->findAll();
+    dd($test);
     
-    $data['breadcrumbs'] = $this->breadcrumb->render();
-
-    return view('test', $data);
+    return view('test');
   }
 }

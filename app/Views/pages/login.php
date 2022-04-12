@@ -4,7 +4,7 @@
 <?= $this->section('content'); ?>
 <h2><?= $contentTitle; ?></h2>
 <div id="content">
-	<form id="signinForm" method="post" action="/login/signIn">
+	<form id="signinForm" method="post" action="<?= base_url(); ?>/login/signIn">
 <input type="hidden" name="source" value="" />
 
 	<table id="signinTable" class="data">
@@ -27,7 +27,7 @@
 	</table>
 
 	<p>
-				&#187; <a href="/login/lostPassword">Forgot your password?</a>
+				&#187; <a href="<?= base_url(); ?>/login/lostPassword">Forgot your password?</a>
 	</p>
 <script type="text/javascript">
 <!--

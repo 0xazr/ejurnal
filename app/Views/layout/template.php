@@ -9,11 +9,11 @@
       <meta charset="UTF-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="stylesheet" href="/assets/styles/pkp/common.css" type="text/css" />
-      <link rel="stylesheet" href="/assets/styles/common.css" type="text/css" />
-      <link rel="stylesheet" href="/assets/styles/compiled.css" type="text/css" />
-      <link rel="stylesheet" href="/assets/styles/sidebar.css" type="text/css" />
-      <link rel="stylesheet" href="/assets/styles/rightSidebar.css" type="text/css" />
+      <link rel="stylesheet" href="<?= base_url(); ?>/assets/styles/pkp/common.css" type="text/css" />
+      <link rel="stylesheet" href="<?= base_url(); ?>/assets/styles/common.css" type="text/css" />
+      <link rel="stylesheet" href="<?= base_url(); ?>/assets/styles/compiled.css" type="text/css" />
+      <link rel="stylesheet" href="<?= base_url(); ?>/assets/styles/sidebar.css" type="text/css" />
+      <link rel="stylesheet" href="<?= base_url(); ?>/assets/styles/rightSidebar.css" type="text/css" />
       <!-- Title berganti sesuai dengan judul halaman -->
       <title><?= $title; ?></title>
    </head>
@@ -35,7 +35,7 @@
                      <a class="blockTitle" href="http://pkp.sfu.ca/ojs/" id="developedBy">Open Journal Systems</a>
                   </div>
                   <div class="block" id="sidebarHelp">
-                     <a class="blockTitle" href="javascript:openHelp('/help/view/user/topic/000001')">Journal Help</a>
+                     <a class="blockTitle" href="">Journal Help</a>
                   </div>
 
                   <!-- SidebarUser berganti ketika user sudah login -->
@@ -45,15 +45,15 @@
                   You are logged in as...<br />
                   <strong><?= $username ?></strong>
                   <ul>
-                     <li><a href="https://iptek.its.ac.id/index.php/index/user">My Journals</a></li>
-                     <li><a href="https://iptek.its.ac.id/index.php/itj/user/profile">My Profile</a></li>
-                     <li><a href="https://iptek.its.ac.id/index.php/itj/login/signOut">Log Out</a></li>
+                     <li><a href="<?= base_url(); ?>/user">My Journals</a></li>
+                     <li><a href="<?= base_url(); ?>/user/profile">My Profile</a></li>
+                     <li><a href="<?= base_url(); ?>/login/signOut">Log Out</a></li>
                   </ul>
                   </div>
                   <?php else : ?>
                   <div class="block" id="sidebarUser">
                      <span class="blockTitle">User</span>
-                     <form method="post" action="/login/signIn">
+                     <form method="post" action="<?= base_url(); ?>/login/signIn">
                         <table>
                            <tr>
                               <td><label for="sidebar-username">Username</label></td>
@@ -76,8 +76,8 @@
                   <div class="block" id="notification">
                      <span class="blockTitle">Notifications</span>
                      <ul>
-                        <li><a href="/notification">View</a></li>
-                        <li><a href="/notification/subscribeMailList">Subscribe</a></li>
+                        <li><a href="<?= base_url(); ?>/notification">View</a></li>
+                        <li><a href="<?= base_url(); ?>/notification/subscribeMailList">Subscribe</a></li>
                      </ul>
                   </div>
                   <div class="block" id="sidebarNavigation">
@@ -110,10 +110,10 @@
                      <br />
                      <span class="blockSubtitle">Browse</span>
                      <ul>
-                        <li><a href="/issue/archive">By Issue</a></li>
-                        <li><a href="/search/authors">By Author</a></li>
-                        <li><a href="/search/titles">By Title</a></li>
-                        <li><a href="/">Other Journals</a></li>
+                        <li><a href="<?= base_url(); ?>/issue/archive">By Issue</a></li>
+                        <li><a href="<?= base_url(); ?>/search/authors">By Author</a></li>
+                        <li><a href="<?= base_url(); ?>/search/titles">By Title</a></li>
+                        <li><a href="<?= base_url(); ?>/">Other Journals</a></li>
                      </ul>
                   </div>
                   <div class="block" id="sidebarFontSize" style="margin-bottom: 4px;">
@@ -124,9 +124,9 @@
                   <div class="block" id="sidebarInformation">
                      <span class="blockTitle">Information</span>
                      <ul>
-                        <li><a href="/information/readers">For Readers</a></li>
-                        <li><a href="/information/authors">For Authors</a></li>
-                        <li><a href="/information/librarians">For Librarians</a></li>
+                        <li><a href="<?= base_url(); ?>/information/readers">For Readers</a></li>
+                        <li><a href="<?= base_url(); ?>/information/authors">For Authors</a></li>
+                        <li><a href="<?= base_url(); ?>/information/librarians">For Librarians</a></li>
                      </ul>
                   </div>
                </div>
@@ -139,21 +139,21 @@
                   <!-- Menu akan berubah ketika user dalam keadaan login -->
                   <?php if ($userSignedIn == True) : ?>
                   <ul class="menu">
-                     <li id="home"><a href="/">Home</a></li>
-                     <li id="about"><a href="/about">About</a></li>
-                     <li id="userHome"><a href="/user">User Home</a></li>
-                     <li id="search"><a href="/search">Search</a></li>
-                     <li id="current"><a href="/issue/current">Current</a></li>
-                     <li id="archives"><a href="/issue/archive">Archives</a></li>
+                     <li id="home"><a href="<?= base_url(); ?>/">Home</a></li>
+                     <li id="about"><a href="<?= base_url(); ?>/about">About</a></li>
+                     <li id="userHome"><a href="<?= base_url(); ?>/user">User Home</a></li>
+                     <li id="search"><a href="<?= base_url(); ?>/search">Search</a></li>
+                     <li id="current"><a href="<?= base_url(); ?>/issue/current">Current</a></li>
+                     <li id="archives"><a href="<?= base_url(); ?>/issue/archive">Archives</a></li>
                   </ul>
                   <?php else : ?>
                   <ul class="menu">
-                     <li id="home"><a href="/">Home</a></li>
-                     <li id="about"><a href="/about">About</a></li>
-                     <li id="login"><a href="/login">Login</a></li>
-                     <li id="search"><a href="/search">Search</a></li>
-                     <li id="current"><a href="/issue/current">Current</a></li>
-                     <li id="archives"><a href="/issue/archive">Archives</a></li>
+                     <li id="home"><a href="<?= base_url(); ?>/">Home</a></li>
+                     <li id="about"><a href="<?= base_url(); ?>/about">About</a></li>
+                     <li id="login"><a href="<?= base_url(); ?>/login">Login</a></li>
+                     <li id="search"><a href="<?= base_url(); ?>/search">Search</a></li>
+                     <li id="current"><a href="<?= base_url(); ?>/issue/current">Current</a></li>
+                     <li id="archives"><a href="<?= base_url(); ?>/issue/archive">Archives</a></li>
                   </ul>
                   <?php endif; ?>
                </div>

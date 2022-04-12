@@ -7,7 +7,8 @@
     "require": {
         "php": "^7.3 || ^8.0",
         "codeigniter4/framework": "^4",
-        "geeklabs/ci4-breadcrumbs": "dev-main"
+        "geeklabs/ci4-breadcrumbs": "dev-main",
+        "myth/auth": "dev-develop"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9",

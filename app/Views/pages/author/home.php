@@ -3,10 +3,10 @@
 
 <?= $this->section('content'); ?>
 <div id="breadcrumb">
-	<a href="/">Home</a> &gt;
-	<a href="/user" class="hierarchyLink">User</a> &gt;
-	<a href="/author" class="hierarchyLink">Author</a> &gt;
-	<a href="/author/" class="current">Active Submissions</a>
+	<a href="<?= base_url(); ?>/">Home</a> &gt;
+	<a href="<?= base_url(); ?>/user" class="hierarchyLink">User</a> &gt;
+	<a href="<?= base_url(); ?>/author" class="hierarchyLink">Author</a> &gt;
+	<a href="<?= base_url(); ?>/author/" class="current">Active Submissions</a>
 </div>
 <h2>Active Submissions</h2>
 
@@ -16,8 +16,8 @@
 
 
 <ul class="menu">
-	<li class="current"><a href="/author/index/active">Active</a></li>
-	<li><a href="/author/index/completed">Archive</a></li>
+	<li class="current"><a href="<?= base_url(); ?>/author/index/active">Active</a></li>
+	<li><a href="<?= base_url(); ?>/author/index/completed">Archive</a></li>
 </ul>
 
 <br />
@@ -26,12 +26,12 @@
 <table class="listing" width="100%">
 	<tr><td colspan="6" class="headseparator">&nbsp;</td></tr>
 	<tr class="heading" valign="bottom">
-		<td width="5%"><a href="/author/index?sort=id&amp;sortDirection=1">ID</a></td>
-		<td width="5%"><span class="disabled">MM-DD</span><br /><a href="/author/index?sort=submitDate&amp;sortDirection=1">Submit</a></td>
-		<td width="5%"><a href="/author/index?sort=section&amp;sortDirection=1">Sec</a></td>
-		<td width="25%"><a href="/author/index?sort=authors&amp;sortDirection=1">Authors</a></td>
-		<td width="35%"><a href="/author/index?sort=title&amp;sortDirection=2" style="font-weight:bold">Title</a></td>
-		<td width="25%" align="right"><a href="/author/index?sort=status&amp;sortDirection=1">Status</a></td>
+		<td width="5%"><a href="<?= base_url(); ?>/author/index?sort=id&amp;sortDirection=1">ID</a></td>
+		<td width="5%"><span class="disabled">MM-DD</span><br /><a href="<?= base_url(); ?>/author/index?sort=submitDate&amp;sortDirection=1">Submit</a></td>
+		<td width="5%"><a href="<?= base_url(); ?>/author/index?sort=section&amp;sortDirection=1">Sec</a></td>
+		<td width="25%"><a href="<?= base_url(); ?>/author/index?sort=authors&amp;sortDirection=1">Authors</a></td>
+		<td width="35%"><a href="<?= base_url(); ?>/author/index?sort=title&amp;sortDirection=2" style="font-weight:bold">Title</a></td>
+		<td width="25%" align="right"><a href="<?= base_url(); ?>/author/index?sort=status&amp;sortDirection=1">Status</a></td>
 	</tr>
 	
 	<!-- Tampilan ketika tidak ada submission -->		
@@ -383,7 +383,7 @@
 <div id="submitStart">
 <h4>Start a New Submission</h4>
 
-<a href="/author/submit" class="action">Click here</a> to go to step one of the five-step submission process.<br />
+<a href="<?= base_url(); ?>/author/submit" class="action">Click here</a> to go to step one of the five-step submission process.<br />
 </div>
 
 
@@ -414,7 +414,7 @@ function toggleChecked() {
 </ul>
 
 <div id="referrals">
-<form action="/referral/bulkAction" method="post">
+<form action="<?= base_url(); ?>/referral/bulkAction" method="post">
 <table width="100%" class="listing">
 	<tr><td class="headseparator" colspan="8">&nbsp;</td></tr>
 	<tr class="heading" valign="bottom">
