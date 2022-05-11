@@ -34,12 +34,12 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Home::index');
 
 // Routes for authors
-$routes->get('/author', 'Author\Home::index');
-$routes->get('/author/submit/', 'Author\Home::submit');
-$routes->get('/author/submit/(:num)', 'Author\Home::submit/$1');
-$routes->get('/author/submit/(:num)/(:num)', 'Author\Home::submit/$1/$2');
-$routes->get('/author/saveSubmit/(:num)', 'Author\Home::saveSubmit/$1');
-$routes->get('/author/saveSubmit/(:num)/(:num)', 'Author\Home::saveSubmit/$1/$2');
+// $routes->get('/author', 'Author\Home::index');
+$routes->get('/author/submit/', 'Author\Submit::index');
+$routes->get('/author/submit/(:num)', 'Author\Submit::index/$1');
+$routes->get('/author/submit/(:num)/(:num)', 'Author\Submit::index/$1/$2');
+$routes->add('/author/saveSubmit/(:num)', 'Author\SaveSubmit::index/$1');
+$routes->add('/author/saveSubmit/(:num)/(:num)', 'Author\SaveSubmit::index/$1/$2');
 
 /*
  * --------------------------------------------------------------------

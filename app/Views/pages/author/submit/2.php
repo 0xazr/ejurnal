@@ -17,7 +17,7 @@
                   <li id="step4" >4. Upload Supplementary Files</li>
                   <li id="step5" >5. Confirmation</li>
                </ul>
-               <form method="post" action="/author/saveSubmit/2" enctype="multipart/form-data">
+               <form method="post" action="/author/saveSubmit/2" enctype="multipart/form-data" name="file">
                   <input type="hidden" name="articleId" value="12536" />
                   <div id="uploadInstructions">
                      <p>To upload a manuscript to this journal, complete the following steps.</p>
