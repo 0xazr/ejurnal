@@ -31,6 +31,43 @@
                   </div>
                   <p>Encountering difficulties? Contact <a href="mailto:"></a> for assistance.</p>
                   <div class="separator"></div>
+                  <?php if(isset($fileinfo)): ?>
+                  <!-- Ketika sudah upload -->
+                  <div id="submissionFile">
+                     <h3>Submission File</h3>
+                     <table class="data" width="100%">
+                        <tr valign="top">
+                           <td width="20%" class="label">File Name</td>
+                           <td width="80%" class="value"><a href="<?= base_url() . $fileinfo['submission_file_address']; ?>"><?= $fileinfo['submission_file_name']; ?></a></td>
+                        </tr>
+                        <tr valign="top">
+                           <td width="20%" class="label">Original file name</td>
+                           <td width="80%" class="value"><?= $fileinfo['submission_original_file_name']; ?></td>
+                        </tr>
+                        <tr valign="top">
+                           <td width="20%" class="label">File Size</td>
+                           <td width="80%" class="value"><?= $fileinfo['submission_file_size'] ?>KB</td>
+                        </tr>
+                        <tr valign="top">
+                           <td width="20%" class="label">Date uploaded</td>
+                           <td width="80%" class="value"><?= $fileinfo['updated_at'] ?></td>
+                        </tr>
+                     </table>
+                  </div>
+                  <!-- Ketika sudah upload -->
+                  <div id="addSubmissionFile">
+                     <table class="data" width="100%">
+                        <tr>
+                           <td width="30%" class="label">
+                              <label for="submissionFile" >Replace submission file</label>
+                           </td>
+                           <td width="70%" class="value">
+                              <input type="file" class="uploadField" name="submissionFile" id="submissionFile" /> <input name="uploadSubmissionFile" type="submit" class="button" value="Upload" />
+                           </td>
+                        </tr>
+                     </table>
+                  </div>
+                  <?php else: ?>
                   <div id="submissionFile">
                   <h3>Submission File</h3>
                   <table class="data" width="100%">
@@ -39,28 +76,6 @@
                   </tr>
                   </table>
                   </div>
-                  <!-- Ketika sudah upload -->
-                  <!-- <div id="submissionFile">
-                     <h3>Submission File</h3>
-                     <table class="data" width="100%">
-                        <tr valign="top">
-                           <td width="20%" class="label">File Name</td>
-                           <td width="80%" class="value"><a href="/author/download/12536/31574">12536-31574-1-SM.pdf</a></td>
-                        </tr>
-                        <tr valign="top">
-                           <td width="20%" class="label">Original file name</td>
-                           <td width="80%" class="value">12515-31518-1-SM.pdf</td>
-                        </tr>
-                        <tr valign="top">
-                           <td width="20%" class="label">File Size</td>
-                           <td width="80%" class="value">916KB</td>
-                        </tr>
-                        <tr valign="top">
-                           <td width="20%" class="label">Date uploaded</td>
-                           <td width="80%" class="value">2022-03-15 07:06 PM</td>
-                        </tr>
-                     </table>
-                  </div> -->
                   <div class="separator"></div>
                   <div id="addSubmissionFile">
                   <table class="data" width="100%">
@@ -77,22 +92,16 @@
                   </tr>
                   </table>
                   </div>
-                  <!-- Ketika sudah upload -->
-                  <!-- <div id="addSubmissionFile">
-                     <table class="data" width="100%">
-                        <tr>
-                           <td width="30%" class="label">
-                              <label for="submissionFile" >
-                              Replace submission file </label>
-                           </td>
-                           <td width="70%" class="value">
-                              <input type="file" class="uploadField" name="submissionFile" id="submissionFile" /> <input name="uploadSubmissionFile" type="submit" class="button" value="Upload" />
-                           </td>
-                        </tr>
-                     </table>
-                  </div> -->
+                  <?php endif; ?>
                   <div class="separator"></div>
                   <p><input type="submit" value="Save and continue" class="button defaultButton" /> <input type="button" value="Cancel" class="button" onclick="confirmAction('/author', 'You can complete this submission at a later date by selecting Active Submissions from the Author home.')" /></p>
                </form>
             </div>
+            <?php
+               if(isset($_GET['error'])) {
+                  echo "
+                  <script>alert('We only received PDF File!');</script>
+                  ";
+               }
+            ?>
 <?= $this->endSection(); ?>

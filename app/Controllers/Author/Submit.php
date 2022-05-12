@@ -4,6 +4,7 @@ namespace App\Controllers\Author;
 
 use App\Controllers\BaseController;
 use App\Models\SubmissionModel;
+use App\Models\SubmissionFileModel;
 
 class Submit extends BaseController
 {
@@ -12,6 +13,7 @@ class Submit extends BaseController
   public function __construct()
   {
     $this->submissionModel = new SubmissionModel();
+    $this->submissionFileModel = new SubmissionFileModel();
   }
 
   public function index($page = 1, $id = 0)
@@ -40,6 +42,11 @@ class Submit extends BaseController
           'title' => "Step 2. Uploading the Submission",
           'headerTitle' => "Step 2. Uploading the Submission"
         ];
+
+        if($fileinfo = $this->submissionFileModel->where('submission_id', $id)->orderBy('submission_file_id', 'desc')->first())
+        {
+          $data['fileinfo'] = $fileinfo;
+        }
         break;
       case 3:
         $data = [
