@@ -24,12 +24,14 @@ class SaveSubmit extends BaseController
         $submission = $this->submissionModel->where('submission_id', $id)->first();
         
         if($submission == NULL) {
+          // return 'HALOCOY';
           $this->submissionModel->insert($data);
+          $submission_id = $this->submissionModel->getInsertID();
+        } else {
+          $submission_id = $id;
         }
         
-        $articleId = $this->submissionModel->getInsertID();
-        
-        return redirect()->to('/author/submit/2/'.$articleId); 
+        return redirect()->to('/author/submit/2/'.$submission_id); 
         break;
       case 2:
         $file = $this->request->getFile('submissionFile');

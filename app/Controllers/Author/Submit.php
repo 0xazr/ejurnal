@@ -62,7 +62,7 @@ class Submit extends BaseController
     }
 
     // Mengirim data submission_id untuk view
-    if($id != NULL) $data['submission_id'] = $id; 
+    if($id != 0) $data['submission_id'] = $id; 
 
     // Redirect apabila tidak ditemukan submission_id pada database
     if($page != 1 && $this->submissionModel->where('submission_id', $id)->first() == NULL) {
