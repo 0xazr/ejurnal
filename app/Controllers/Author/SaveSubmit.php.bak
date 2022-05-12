@@ -17,12 +17,13 @@ class SaveSubmit extends BaseController
 
   public function index($page = 1, $id = 0)
   {
+    if ($id == 0) $page = 1;
+    
     switch($page) {
       case 1:
         $data['submission_progress'] = $page;
         
         $submission = $this->submissionModel->where('submission_id', $id)->first();
-        
         if($submission == NULL) {
           $this->submissionModel->insert($data);
         }
@@ -32,10 +33,14 @@ class SaveSubmit extends BaseController
         return redirect()->to('/author/submit/2/'.$articleId); 
         break;
       case 2:
-        $file = $this->request->getFile('submissionFile');
-        $file_name = $file->getSizeByUnit('kb');
-        echo $file_name . '<br>';
-        var_dump($file);
+        $data['submission_id'] = $id;
+        $data['submission_progress'] = $page;
+        
+        $submission = $this->submissionModel->where('submission_id', $id)->first();
+        if($submission['submission_progress'] == 1) {
+          $this->submissionModel->whereIn('submission_id', [$id])->set(['submission_progress' => $page])->update();
+        }
+
         break;
       case 3:
         break;

@@ -1,6 +1,7 @@
 <?= $this->extend('layout/template'); ?>
 
 <?= $this->section('content'); ?>
+
 <div id="breadcrumb">
 	<a href="/index">Home</a> &gt;
 	<a href="/user" class="hierarchyLink">User</a> &gt;
@@ -64,27 +65,27 @@ function checkSubmissionChecklist() {
 			<p>Indicate that this submission is ready to be considered by this journal by checking off the following (comments to the editor can be added below).</p>
 			<table width="100%" class="data">
 				<tr valign="top">
-			<td width="5%"><input type="checkbox" id="checklist-1" name="checklist[]" value="0" /></td>
+			<td width="5%"><input type="checkbox" id="checklist-1" name="checklist[]" value="0" <?= isset($checked) ? $checked : '' ?>/></td>
 			<td width="95%"><label for="checklist-1">The submission has not been previously published, nor is it before another journal for consideration (or an explanation has been provided in Comments to the Editor).</label></td>
 		</tr>
 						<tr valign="top">
-			<td width="5%"><input type="checkbox" id="checklist-2" name="checklist[]" value="1" /></td>
+			<td width="5%"><input type="checkbox" id="checklist-2" name="checklist[]" value="1" <?= isset($checked) ? $checked : '' ?>/></td>
 			<td width="95%"><label for="checklist-2">The submission file is in OpenOffice, Microsoft Word, RTF, or WordPerfect document file format.</label></td>
 		</tr>
 						<tr valign="top">
-			<td width="5%"><input type="checkbox" id="checklist-3" name="checklist[]" value="2" /></td>
+			<td width="5%"><input type="checkbox" id="checklist-3" name="checklist[]" value="2" <?= isset($checked) ? $checked : '' ?>/></td>
 			<td width="95%"><label for="checklist-3">Where available, URLs for the references have been provided.</label></td>
 		</tr>
 						<tr valign="top">
-			<td width="5%"><input type="checkbox" id="checklist-4" name="checklist[]" value="3" /></td>
+			<td width="5%"><input type="checkbox" id="checklist-4" name="checklist[]" value="3" <?= isset($checked) ? $checked : '' ?>/></td>
 			<td width="95%"><label for="checklist-4">The text is single-spaced; uses a 12-point font; employs italics, rather than underlining (except with URL addresses); and all illustrations, figures, and tables are placed within the text at the appropriate points, rather than at the end.</label></td>
 		</tr>
 						<tr valign="top">
-			<td width="5%"><input type="checkbox" id="checklist-5" name="checklist[]" value="4" /></td>
+			<td width="5%"><input type="checkbox" id="checklist-5" name="checklist[]" value="4" <?= isset($checked) ? $checked : '' ?>/></td>
 			<td width="95%"><label for="checklist-5">The text adheres to the stylistic and bibliographic requirements outlined in the <a href="/index.php/itj/about/submissions#authorGuidelines" target="_new">Author Guidelines</a>, which is found in About the Journal.</label></td>
 		</tr>
 						<tr valign="top">
-			<td width="5%"><input type="checkbox" id="checklist-6" name="checklist[]" value="5" /></td>
+			<td width="5%"><input type="checkbox" id="checklist-6" name="checklist[]" value="5" <?= isset($checked) ? $checked : '' ?>/></td>
 			<td width="95%"><label for="checklist-6">If submitting to a peer-reviewed section of the journal, the instructions in <a href="javascript:openHelp('/help/view/editorial/topic/000044')">Ensuring a Blind Review</a> have been followed.</label></td>
 		</tr>
 		</table>

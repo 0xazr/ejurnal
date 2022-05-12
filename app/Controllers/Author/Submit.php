@@ -14,7 +14,7 @@ class Submit extends BaseController
     $this->submissionModel = new SubmissionModel();
   }
 
-  public function index($page = 1, $id = null)
+  public function index($page = 1, $id = 0)
   {
     $data['title'] = "Submission";
   
@@ -24,6 +24,16 @@ class Submit extends BaseController
           'title' => "Step 1. Starting the Submission",
           'headerTitle' => "Step 1. Starting the Submission"
         ];
+        
+        // Redirect ketika tidak ditemukan submission_id di db
+        if($id > 0 && $this->submissionModel->where('submission_id', $id)->first() == NULL) {
+          return redirect()->to('/author/submit/1');
+        }
+
+        // Untuk input checked di page submission 1 
+        $progress = $this->submissionModel->where('submission_id', $id)->findColumn('submission_progress');
+        if(!$progress) break;
+        $data['checked'] = $progress[0] >= 1 ? 'checked' : '';
         break;
       case 2:
         $data = [
@@ -51,6 +61,10 @@ class Submit extends BaseController
         break;
     }
 
+    // Mengirim data submission_id untuk view
+    if($id != NULL) $data['submission_id'] = $id; 
+
+    // Redirect apabila tidak ditemukan submission_id pada database
     if($page != 1 && $this->submissionModel->where('submission_id', $id)->first() == NULL) {
       return redirect()->to('/author/submit/1');
     }
