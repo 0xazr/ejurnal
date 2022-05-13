@@ -6,20 +6,20 @@
                <a href="/user" class="hierarchyLink">User</a> &gt;
                <a href="/author" class="hierarchyLink">Author</a> &gt;
                <a href="/author" class="hierarchyLink">Submissions</a> &gt;
-               <a href="/author/submit/3?articleId=12525" class="current">New Submission</a>
+               <a href="/author/submit/3/<?= $submission_id; ?>" class="current">New Submission</a>
             </div>
             <h2>Step 3. Entering the Submission's Metadata</h2>
             <div id="content">
                <ul class="steplist">
-                  <li id="step1" ><a href="/author/submit/1?articleId=12536">1. Start</a></li>
-                  <li id="step2" ><a href="/author/submit/2?articleId=12536">2. Upload Submission</a></li>
+                  <li id="step1" ><a href="/author/submit/1/<?= $submission_id; ?>">1. Start</a></li>
+                  <li id="step2" ><a href="/author/submit/2/<?= $submission_id; ?>">2. Upload Submission</a></li>
                   <li id="step3"  class="current">3. Enter Metadata</li>
                   <li id="step4" >4. Upload Supplementary Files</li>
                   <li id="step5" >5. Confirmation</li>
                </ul>
                <div class="separator"></div>
-               <form id="submit" method="post" action="/author/saveSubmit/3">
-                  <input type="hidden" name="articleId" value="12536" />
+               <form name="addAuthor" method="post" action="/author/saveSubmit/3/<?= $submission_id; ?>">
+                  <input type="hidden" name="articleId" value="<?= $submission_id; ?>" />
                   <div id="authors">
                      <h3>Authors</h3>
                      <input type="hidden" name="deletedAuthors" value="" />
@@ -71,7 +71,7 @@
                               Affiliation </label>
                            </td>
                            <td width="80%" class="value">
-                              <textarea name="authors[0][affiliation][en_US]" class="textArea" id="authors-0-affiliation" rows="5" cols="40"></textarea><br/>
+                              <textarea name="authors[0][affiliation]" class="textArea" id="authors-0-affiliation" rows="5" cols="40"></textarea><br/>
                               <span class="instruct">(Your institution, e.g. "Simon Fraser University")</span>
                            </td>
                         </tr>
@@ -338,94 +338,96 @@
                               Bio Statement </label>
                               <br />(E.g., department and rank)
                            </td>
-                           <td width="80%" class="value"><textarea name="authors[0][biography][en_US]" class="textArea" id="authors-0-biography" rows="5" cols="40"></textarea></td>
+                           <td width="80%" class="value"><textarea name="authors[0][biography]" class="textArea" id="authors-0-biography" rows="5" cols="40"></textarea></td>
                         </tr>
                      </table>
                      <p><input type="submit" class="button" name="addAuthor" value="Add Author" /></p>
                   </div>
-                  <div class="separator"></div>
-                  <div id="titleAndAbstract">
-                     <h3>Title and Abstract</h3>
-                     <table width="100%" class="data">
-                        <tr valign="top">
-                           <td width="20%" class="label">
-                              <label for="title" >
-                              Title *</label>
-                           </td>
-                           <td width="80%" class="value"><input type="text" class="textField" name="title[en_US]" id="title" value="" size="60" maxlength="255" /></td>
-                        </tr>
-                        <tr valign="top">
-                           <td width="20%" class="label">
-                              <label for="abstract" >
-                              Abstract *</label>
-                           </td>
-                           <td width="80%" class="value"><textarea name="abstract[en_US]" id="abstract" class="textArea" rows="15" cols="60"></textarea></td>
-                        </tr>
-                     </table>
-                  </div>
-                  <div class="separator"></div>
-                  <div id="indexing">
-                     <h3>Indexing</h3>
-                     <p>Provide terms for indexing the submission; separate terms with a semi-colon (term1; term2; term3).</p>
-                     <table width="100%" class="data">
-                        <tr valign="top">
-                           <td rowspan="2" width="20%" class="label">
-                              <label for="subject" >
-                              Keywords </label>
-                           </td>
-                           <td width="80%" class="value"><input type="text" class="textField" name="subject[en_US]" id="subject" value="" size="40" maxlength="255" /></td>
-                        </tr>
-                        <tr valign="top">
-                           <td><span class="instruct">Photosynthesis; Black Holes; Four-Color Map Problem; Bayesian Theory</span></td>
-                        </tr>
-                        <tr valign="top">
-                           <td>&nbsp;</td>
-                           <td>&nbsp;</td>
-                        </tr>
-                        <tr valign="top">
-                           <td rowspan="2" width="20%" class="label">
-                              <label for="language" >
-                              Language </label>
-                           </td>
-                           <td width="80%" class="value"><input type="text" class="textField" name="language" id="language" value="en" size="5" maxlength="10" /></td>
-                        </tr>
-                        <tr valign="top">
-                           <td><span class="instruct">English=en; French=fr; Spanish=es. <a href="http://www.loc.gov/standards/iso639-2/php/code_list.php" target="_blank">Additional codes</a>.</span></td>
-                        </tr>
-                     </table>
-                  </div>
-                  <div class="separator"></div>
-                  <div id="submissionSupportingAgencies">
-                     <h3>Contributors and Supporting Agencies</h3>
-                     <p>Identify agencies (a person, an organization, or a service) that made contributions to the content or provided funding or support for the work presented in this submission. Separate them with a semi-colon (e.g. John Doe, Metro University; Master University, Department of Computer Science).</p>
-                     <table width="100%" class="data">
-                        <tr valign="top">
-                           <td width="20%" class="label">
-                              <label for="sponsor" >
-                              Agencies </label>
-                           </td>
-                           <td width="80%" class="value"><input type="text" class="textField" name="sponsor[en_US]" id="sponsor" value="" size="60" maxlength="255" /></td>
-                        </tr>
-                     </table>
-                  </div>
-                  <div class="separator"></div>
-                  <div id="metaCitations">
-                     <h3>References</h3>
-                     <p>Provide a formatted list of references for works cited in this submission. Please separate individual references with a blank line.</p>
-                     <table width="100%" class="data">
-                        <tr valign="top">
-                           <td width="20%" class="label">
-                              <label for="citations" >
-                              References </label>
-                           </td>
-                           <td width="80%" class="value"><textarea name="citations" id="citations" class="textArea" rows="15" cols="60"></textarea></td>
-                        </tr>
-                     </table>
-                     <div class="separator"></div>
-                  </div>
-                  <p><input type="submit" value="Save and continue" class="button defaultButton" /> <input type="button" value="Cancel" class="button" onclick="confirmAction('/author', 'You can complete this submission at a later date by selecting Active Submissions from the Author home.')" /></p>
-                  <p><span class="formRequired">* Denotes required field</span></p>
                </form>
-            </div>
+               <form name="submitArticle" method="post" action="/author/saveSubmit/3/<?= $submission_id; ?>">
+               <div class="separator"></div>
+               <div id="titleAndAbstract">
+                  <h3>Title and Abstract</h3>
+                  <table width="100%" class="data">
+                     <tr valign="top">
+                        <td width="20%" class="label">
+                           <label for="title" >
+                           Title *</label>
+                        </td>
+                        <td width="80%" class="value"><input type="text" class="textField" name="title[en_US]" id="title" value="" size="60" maxlength="255" /></td>
+                     </tr>
+                     <tr valign="top">
+                        <td width="20%" class="label">
+                           <label for="abstract" >
+                           Abstract *</label>
+                        </td>
+                        <td width="80%" class="value"><textarea name="abstract[en_US]" id="abstract" class="textArea" rows="15" cols="60"></textarea></td>
+                     </tr>
+                  </table>
+               </div>
+               <div class="separator"></div>
+               <div id="indexing">
+                  <h3>Indexing</h3>
+                  <p>Provide terms for indexing the submission; separate terms with a semi-colon (term1; term2; term3).</p>
+                  <table width="100%" class="data">
+                     <tr valign="top">
+                        <td rowspan="2" width="20%" class="label">
+                           <label for="subject" >
+                           Keywords </label>
+                        </td>
+                        <td width="80%" class="value"><input type="text" class="textField" name="subject[en_US]" id="subject" value="" size="40" maxlength="255" /></td>
+                     </tr>
+                     <tr valign="top">
+                        <td><span class="instruct">Photosynthesis; Black Holes; Four-Color Map Problem; Bayesian Theory</span></td>
+                     </tr>
+                     <tr valign="top">
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                     </tr>
+                     <tr valign="top">
+                        <td rowspan="2" width="20%" class="label">
+                           <label for="language" >
+                           Language </label>
+                        </td>
+                        <td width="80%" class="value"><input type="text" class="textField" name="language" id="language" value="en" size="5" maxlength="10" /></td>
+                     </tr>
+                     <tr valign="top">
+                        <td><span class="instruct">English=en; French=fr; Spanish=es. <a href="http://www.loc.gov/standards/iso639-2/php/code_list.php" target="_blank">Additional codes</a>.</span></td>
+                     </tr>
+                  </table>
+               </div>
+               <div class="separator"></div>
+               <div id="submissionSupportingAgencies">
+                  <h3>Contributors and Supporting Agencies</h3>
+                  <p>Identify agencies (a person, an organization, or a service) that made contributions to the content or provided funding or support for the work presented in this submission. Separate them with a semi-colon (e.g. John Doe, Metro University; Master University, Department of Computer Science).</p>
+                  <table width="100%" class="data">
+                     <tr valign="top">
+                        <td width="20%" class="label">
+                           <label for="sponsor" >
+                           Agencies </label>
+                        </td>
+                        <td width="80%" class="value"><input type="text" class="textField" name="sponsor[en_US]" id="sponsor" value="" size="60" maxlength="255" /></td>
+                     </tr>
+                  </table>
+               </div>
+               <div class="separator"></div>
+               <div id="metaCitations">
+                  <h3>References</h3>
+                  <p>Provide a formatted list of references for works cited in this submission. Please separate individual references with a blank line.</p>
+                  <table width="100%" class="data">
+                     <tr valign="top">
+                        <td width="20%" class="label">
+                           <label for="citations" >
+                           References </label>
+                        </td>
+                        <td width="80%" class="value"><textarea name="citations" id="citations" class="textArea" rows="15" cols="60"></textarea></td>
+                     </tr>
+                  </table>
+                  <div class="separator"></div>
+               </div>
+               <p><input type="submit" name="submitArticle" value="Save and continue" class="button defaultButton" /> <input type="button" value="Cancel" class="button" onclick="confirmAction('/author', 'You can complete this submission at a later date by selecting Active Submissions from the Author home.')" /></p>
+               <p><span class="formRequired">* Denotes required field</span></p>
+            </form>
+         </div>
 
 <?= $this->endSection(); ?>

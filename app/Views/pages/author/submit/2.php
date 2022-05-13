@@ -94,8 +94,9 @@
                   </div>
                   <?php endif; ?>
                   <div class="separator"></div>
-                  <p><input type="submit" value="Save and continue" class="button defaultButton" /> <input type="button" value="Cancel" class="button" onclick="confirmAction('/author', 'You can complete this submission at a later date by selecting Active Submissions from the Author home.')" /></p>
-               </form>
+                  </form>
+                  <p><input type="submit" value="Save and continue" class="button defaultButton" onclick="window.location.href='<?= base_url('/author/submit/3/' . $submission_id); ?>'" /> <input type="button" value="Cancel" class="button" onclick="if (confirm('You can complete this submission at a later date by selecting Active Submissions from the Author home.')) window.location.href='<?= base_url('/author'); ?>';" /></p>
+               
             </div>
             <?php
                if(isset($_GET['error'])) {

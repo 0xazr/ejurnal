@@ -36,6 +36,8 @@ class SaveSubmit extends BaseController
         return redirect()->to('/author/submit/2/'.$submission_id); 
         break;
       case 2:
+        // if($this->request->getPost('submissionFile') == NULL) return redirect()->to('/author/submit/3/'.$id);
+        // die();
         $validationRule = [
           'submissionFile' => [
               'label' => 'Submission File',
@@ -44,7 +46,9 @@ class SaveSubmit extends BaseController
           ],
         ];
 
-        if (! $this->validate($validationRule)) {
+        // var_dump($this->request);
+        // die('stop');
+        if(!$this->validate($validationRule)) {
           return redirect()->to('/author/submit/2/'.$id.'?error=pdf+only');
         }
 
@@ -77,6 +81,28 @@ class SaveSubmit extends BaseController
         }
         break;
       case 3:
+        $post = $this->request->getPost();
+        // var_dump($post);
+        if(isset($post['addAuthor'])) {
+          $author = $post['authors'][0];
+          // var_dump($author);
+          $data = [
+            'first_name' => $author['firstName'],
+            'middle_name' => $author['middleName'],
+            'last_name' => $author['lastName'],
+            'email' => $author['email'],
+            'affiliation' => $author['affiliation'],
+            'country' => $author['country'],
+            'biography' => $author['biography']
+          ];
+
+          
+
+        } else if (isset($post['submitArticle'])) {
+          var_dump($post);
+        } else {
+          return redirect()->to('/author/submit/3/' . $id);
+        }
         break;
       case 4:
         break;
